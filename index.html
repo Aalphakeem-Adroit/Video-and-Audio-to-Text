@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AjibolaTransc - Convert your video and audio recordings to text with high accuracy">
+    <meta name="theme-color" content="#4f46e5">
+    <title>AjibolaTransc | Video/Audio to Text Transcription</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/icon-192.png">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="brand">AjibolaTransc</div>
+            <div class="nav-right">
+                <button id="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <button id="history-btn" class="btn-secondary">History</button>
+            </div>
+        </nav>
+
+        <!-- Main Content - Changes based on route -->
+        <main id="main-content">
+            <!-- Home Page (default) -->
+            <section id="home-page" class="page active">
+                <div class="hero">
+                    <h1>Convert Your Videos & Audio to Text</h1>
+                    <p class="subtext">
+                        AjibolaTransc helps you easily transcribe your video and audio recordings 
+                        into accurate text. Simply record or upload your media, and we'll handle 
+                        the transcription for you.
+                    </p>
+                    <div class="action-buttons">
+                        <button id="take-video" class="btn-primary">Take Video</button>
+                        <button id="take-audio" class="btn-primary">Take Audio</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Video Recording Page -->
+            <section id="video-page" class="page">
+                <h2>Video Recording</h2>
+                <div class="recorder-container">
+                    <video id="video-preview" autoplay muted></video>
+                    <div class="video-controls">
+                        <select id="video-source" class="form-control">
+                            <option value="front">Front Camera</option>
+                            <option value="back">Back Camera</option>
+                        </select>
+                        <button id="start-video" class="btn-primary">Start Recording</button>
+                        <button id="stop-video" class="btn-danger" disabled>Stop Recording</button>
+                    </div>
+                    <div class="recording-status">
+                        <div class="recording-indicator"></div>
+                        <span id="recording-timer">00:00</span>
+                    </div>
+                    <div class="post-recording-actions" style="display: none;">
+                        <button id="download-video" class="btn-secondary">Download MP4</button>
+                        <button id="transcribe-video" class="btn-primary">Transcribe</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Audio Recording Page -->
+            <section id="audio-page" class="page">
+                <h2>Audio Recording</h2>
+                <div class="recorder-container">
+                    <div class="audio-visualizer" id="audio-visualizer"></div>
+                    <div class="audio-controls">
+                        <button id="start-audio" class="btn-primary">Start Recording</button>
+                        <button id="stop-audio" class="btn-danger" disabled>Stop Recording</button>
+                    </div>
+                    <div class="recording-status">
+                        <div class="recording-indicator"></div>
+                        <span id="audio-timer">00:00</span>
+                    </div>
+                    <div class="post-recording-actions" style="display: none;">
+                        <button id="download-audio" class="btn-secondary">Download MP3</button>
+                        <button id="transcribe-audio" class="btn-primary">Transcribe</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Transcription Page -->
+            <section id="transcription-page" class="page">
+                <div class="transcription-header">
+                    <h2>Transcription Result</h2>
+                    <button id="go-home" class="btn-secondary">Home</button>
+                </div>
+                <div class="loading-screen" id="loading-screen">
+                    <div class="spinner"></div>
+                    <p>Transcribing your media... This may take a moment.</p>
+                </div>
+                <div class="transcription-result" id="transcription-result" style="display: none;">
+                    <div class="text-controls">
+                        <button id="copy-text" class="btn-secondary">Copy Text</button>
+                        <div class="download-dropdown">
+                            <button id="download-btn" class="btn-primary">Download</button>
+                            <div class="download-options">
+                                <button data-format="txt">Text (.txt)</button>
+                                <button data-format="pdf">PDF (.pdf)</button>
+                                <button data-format="docx">Word (.docx)</button>
+                                <button data-format="xlsx">Excel (.xlsx)</button>
+                            </div>
+                        </div>
+                    </div>
+                    <textarea id="transcribed-text" readonly></textarea>
+                </div>
+            </section>
+
+            <!-- History Page -->
+            <section id="history-page" class="page">
+                <div class="history-header">
+                    <h2>Your Transcription History</h2>
+                    <button id="history-go-home" class="btn-secondary">Home</button>
+                </div>
+                <div class="history-list" id="history-list">
+                    <!-- Dynamically populated with history items -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
