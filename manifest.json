@@ -1,0 +1,21 @@
+{
+    "name": "AjibolaTransc",
+    "short_name": "AjibolaTransc",
+    "description": "Convert your video and audio recordings to text with high accuracy",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#4f46e5",
+    "icons": [
+        {
+            "src": "assets/icon-192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "assets/icon-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}
